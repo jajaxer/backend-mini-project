@@ -1,9 +1,7 @@
 package com.interview.customer_management_service.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.UUID;
@@ -16,9 +14,14 @@ public class Customer {
     @Id
     @GeneratedValue
     private UUID customerId;
+    @Column(nullable = false)
     private String firstName;
+    @Column(nullable = true)
     private String middleName;
+    @Column(nullable = false)
     private String lastName;
+    @Column(unique = true, nullable = false)
     private String emailAddress;
+    @Column(nullable = true)
     private String phoneNumber;
 }

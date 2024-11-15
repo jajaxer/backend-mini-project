@@ -30,4 +30,8 @@ public class CustomerService {
     public void deleteCustomerById(UUID customerId) {
         customerRepository.deleteById(customerId);
     }
+
+    public Customer updateCustomer( Customer customer) {
+        return  customerRepository.save(customer);
+    }
 }
