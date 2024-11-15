@@ -28,6 +28,11 @@ public class CustomerController {
     public Optional<Customer> getCustomerById(@PathVariable UUID customerId) {
         return customerService.getCustomerById(customerId);
     }
+    @PutMapping("{customerId}")
+    public void updateCustomerById(@PathVariable UUID customerId, @RequestBody Customer customer) {
+        customer.setCustomerId(customerId);
+        customerService.updateCustomer( customer);
+    }
 
     @DeleteMapping("/{customerId}")
     public void deleteCustomerById(@PathVariable UUID customerId) {
